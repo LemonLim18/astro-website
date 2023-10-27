@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+import logos from '../images/deploy-logos.png';
+import logosSmall from '../images/deploy-logos-small.png';
+---
+
+<Layout title="About Astro">
+    <section class="page-content">
+        <div class="container">
+            <h2>About Astro</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita labore sunt, tempore 
+                repellendus aliquam provident corporis in, libero dolorem excepturi totam dolore nam inventore 
+                recusandae voluptatum culpa! Quod eaque natus omnis ipsa cupiditate perferendis aliquam 
+                necessitatibus incidunt libero sed nostrum, quam iusto debitis distinctio quaerat velit dolor 
+                delectus nihil dolore vitae nisi? Dicta itaque aperiam natus aliquam maiores atque amet ipsum 
+                nihil delectus. Maiores corporis quia perferendis. Quos, commodi quisquam?
+            </p>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae delectus culpa, deleniti 
+                magnam eum quasi magni, sint alias laudantium error similique modi id quo eveniet itaque iste 
+                illo corrupti distinctio ab? Iusto dolorem, libero ullam accusantium porro, sapiente illum omnis 
+                iste natus ipsum ad veniam numquam vitae praesentium exercitationem quia?
+            </p>
+
+            <!-- The card is being called and used to cover the following the content -->
+            <Card dark = {false}>
+                <h3>Use the tools you already love</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, suscipit impedit error 
+                    esse explicabo inventore rem minima labore totam corrupti, beatae alias tempora hic accusantium 
+                    reprehenderit id commodi repudiandae! Sed repellat est facere eos optio sit animi asperiores 
+                    nostrum quibusdam esse, assumenda ex itaque, odit distinctio nesciunt? Rem repellat odit placeat 
+                    nisi ducimus, et necessitatibus cumque rerum ab modi blanditiis molestias ipsam est saepe delectus 
+                    reiciendis vero. A, architecto excepturi?
+                </p>
+            </Card>
+
+            <h3>Deploy to anywhere, even the edge</h3>
+            <img class="logos" src={logos.src} alt="" />
+            <img class="logos-small" src={logosSmall.src} alt=""/>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore consequatur natus ex repellat numquam 
+                dolorem sequi perferendis a neque officia repudiandae minus rem aspernatur, excepturi tenetur. Impedit 
+                harum sed sunt ipsum? Porro harum blanditiis enim reprehenderit distinctio dolores tempore provident?
+            </p>
+
+            <h3>Join our Community</h3>
+            <p>
+            Join us in the Astro Discord to share with and get help from an
+            active, friendly community!
+            </p>
+
+            <ul>
+                <li>💬 Say hi in our #introduce-yourself channel!</li>
+                <li>
+                    💬 Ask our Support Squad a question in our #support-threads
+                    channel!
+                </li>
+                <li>
+                    💬 Share what you've been working on in our #showcase channel!
+                </li>
+            </ul>
+        </div>
+    </section>
+</Layout>

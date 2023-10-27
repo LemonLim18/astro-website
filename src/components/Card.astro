@@ -1,0 +1,35 @@
+---
+export interface Props {
+    dark?: boolean;
+}
+
+const { dark = false } = Astro.props as Props;
+--- 
+<!-- export can be thought as global -->
+
+<!-- This is a conditional classing, meaning that the a special class will be applied if the condition is satisfied -->
+<div class={`card ${dark && 'dark'}`}>
+    <!-- Supposedly, the card component will receive the props from the Features.astro
+         and the rendering process will occur as follows: -->
+    <!-- <h3>{title}</h3>
+         <p>{body}</p>     -->
+
+    <!-- However, the props are now not passed to here(Card.astro), but will be handled at the Features.astro beforehand -->
+    <!-- Used to cover the child content when being called(Think of it as a blank content to accommodate the content) -->
+    <slot />  
+</div>
+
+<style>
+    .card {
+        backgroundL #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    .dark {
+        background: var(--color-primary);
+        color: #fff;
+    }
+</style>

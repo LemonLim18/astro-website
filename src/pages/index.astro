@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Showcase from '../components/Showcase.astro';
+import Features from '../components/Features.astro';
+import Tabs from '../components/Tabs.astro';
+---
+<!-- Layout here is just a random alias referring to the whole content from the Layout.astro -->
+<!-- Likewise, Showcase here refers to the whole component of the Showcase.jsx -->
+
+<!-- Apply the general template: layout to the specific page(index.html)
+instead of other way round -->
+
+<!-- <Layout title="Hello"> -->
+<Layout>
+	<Showcase showExtra={true} />
+	<Features />
+
+
+	<section class="page-content">
+		<div class="container">
+			<h2>Get Started With Astro</h2>
+			<p>
+				Get a new Astro project up and running locally with our helpful
+				create-astro CLI wizard!
+			</p>
+			<!-- Tabs -->
+			<Tabs headings={['NPM', 'PNPM', 'YARN']} contents=
+			{['$ npm create astro@latest', '$ pnpm create astro@latest', '$ yarn create astro']}/>	
+
+			<h3>Start Building</h3>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ipsum
+				deserunt inventore ut voluptate, officia maiores repellat tenetur
+				praesentium omnis est ex tempora a necessitatibus reiciendis at et
+				dignissimos. Ipsam eius consequuntur cupiditate aperiam porro, esse
+				laborum impedit nesciunt ut voluptatum assumenda aspernatur libero
+				iusto error molestias dolorum, necessitatibus labore?
+			</p>
+		</div>
+	</section>
+
+</Layout>
+
+<!-- Using code from <Layout /> -->
+<!-- Using code component from <Showcase /> -->
+<!-- Props can be used to determine the properties of the components when
+we are calling the component from the index.astro page -->

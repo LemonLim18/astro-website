@@ -1,0 +1,52 @@
+<!-- [] signifies that the variable is of array type -->
+---
+import Card from '../components/Card.astro';
+
+const featuresData = [
+    {
+        title: 'Zero Javascript Runtime',
+        body: 'Astro renders HTML on the server and strips away any remaining, unused Javascript.'
+    },
+    {
+        title: 'The Power of Islands',
+        body: 'Need interactive UI? Load individual, non-blocking component islands in parallel.'
+    },
+    {
+        title: 'Lazy-Loading Islands',
+        body: 'Components only hydrate when they scroll into view. If you don\'t see it, Astro won\'t load it.'
+    },
+];
+---
+
+<section class="features">
+    <div class="container">
+        { featuresData.map(feature => (
+            // Originally we will pass the props to the Card component and like the rendering
+            // to happen on the Card.astro site, as follows:
+            // <Card title={ feature.title } body={ feature.body } />
+            
+            // But since the props are not available, thus the rendering process will
+            // happen here, in the Features.astro file, as follows:
+            <Card>
+                <h2>{feature.title}</h2>
+                <p>{feature.body}</p>
+            </Card>
+        ))}
+    </div>
+</section>
+
+<style>
+    .features .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 0 20px;
+    margin: 30px auto;
+}
+/* the container will stack over one another in only one column when the width is <= 500px */
+  @media (max-width: 700px) {
+  .features .container {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
