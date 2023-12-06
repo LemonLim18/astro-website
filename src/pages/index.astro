@@ -2,17 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import Showcase from '../components/Showcase.astro';
 import Features from '../components/Features.astro';
+import Home from '../components/Home.astro';
+import Converter from '../components/Converter.astro';
+import Blog from '../components/Blog.astro';
 import Tabs from '../components/Tabs.astro';
+import Product from '../components/Product.astro';
 ---
 <!-- Layout here is just a random alias referring to the whole content from the Layout.astro -->
 <!-- Likewise, Showcase here refers to the whole component of the Showcase.jsx -->
 
 <!-- Apply the general template: layout to the specific page(index.html)
 instead of other way round -->
-
-<!-- <Layout title="Hello"> -->
 <Layout>
 	<Showcase showExtra={true} />
+	<Home />
+	<Converter />
+	<Blog />
+	<Product />
 	<Features />
 
 

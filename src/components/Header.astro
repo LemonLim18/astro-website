@@ -1,56 +1,205 @@
 ---
-import logo from '../images/logo.svg';
+import logo_full from '../images/logo_full.png';
+import logo_short from '../images/logo_short.png';
+import astronaut from '../images/astronaut.jpg';
 ---
 
-<header class="header">
+<!-- HTML codes -->
+
+<!-- <header class="header" id="myHeader">
     <div class="container">
         <div class="logo">
             <a href="/">
-                <img src={logo.src} alt="Logo" /> 
+                <img class="logo_full" src={logo_full.src} alt="Logo" />
+                <img class="logo_short" src={logo_short.src} alt="Logo" />  
             </a>
         </div>
-        <nav>
+        <nav class="navbar" id="navbar">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#converter">PDF/TXT Converter</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#product">Products</a></li>
             </ul>
         </nav>
-    </div>
+        <input type="checkbox" id="darkmode-toggle" />
+        <label for="darkmode-toggle" class="darkmode-toggle-label">
+        </div>
+</header> -->
+
+<header class="header" id="myHeader">
+  <a href="#" class="logo">
+    <img class="logo_full" src={logo_full.src} alt="Logo" />
+    <img class="logo_short" src={logo_short.src} alt="Logo" />
+  </a>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#converter">PDF/TXT Converter</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#product">Products</a></li>
+  </ul>
 </header>
 
+<section class="banner">
+  <img src={astronaut.src} alt="banner">
+</section>
+
+
+<!-- CSS codes -->
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background: #000;
+    min-height: 200vh;
+  }
   .header {
-    height: 70px;
-    background: var(--color-primary);
-  }
-  
-  .header .container {
-    /* take up the 100% height of the parent element */
-    height: 100%;
-    /* setting up a flex will make the layout easy to be aligned and distributed */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 95px;
+    width: 100%;
+    padding: 0px 30px;
+    background: white;
     display: flex;
-    /* vertically center */
-    align-items: center;
-    /* push the items along the horizontal axis as far apart as possible */
     justify-content: space-between;
-    padding: 0 20px;
+    align-items: center;
+    z-index: 100;
+    transition: 0.6s;
   }
-  
-  .header img {
-    height: 35px;
-    vertical-align: middle;
+
+  /* Textify logo */
+  .logo img{
+    height: 130px;
   }
-  
-  .header nav ul {
+
+  .logo_short {
+    display: none;
+    
+  }
+  @media (max-width:715px) {
+     .logo_short {
+        
+        display: block;
+     }
+     .logo_full {
+        display: none;
+     }
+  }
+
+  header ul {
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header ul li {
+    position: relative;
+    list-style: none;
+    display: flex;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.5;
+  }
+
+  header ul li a {
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #black;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    transition: 0.6s;
+  }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+  }
+  .banner img {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+  }
+
+  @media (min-width:1150px) {
+    .banner img {
+      width: 100%;
+      top: 90px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 90px;
+      width: 100%;
+      padding: 0px 30px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      transition: 0.6s;
+    }
+
+  }
+
+  /* Makes the header stick at the top while scroll */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    /* testing */
+    transition: top 0.3s;
   }
   
-  .header nav ul li {
-    padding: 0 10px;
-  }
+</style>
+
+
+<!-- Javascript code -->
+<script> 
+  window.onscroll = function() {myFunction()};
+
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  var prevScrollPos = window.pageYOffset; // add a variable to store the previous scroll position
   
-  .header nav ul li a {
-    color: #fff;
+  function myFunction() {
+    var currentScrollPos = window.pageYOffset; // get the current scroll position
+    if (prevScrollPos < currentScrollPos) {
+      // if the current scroll position is greater than the previous one, hide the header
+      header.style.top = "-100px";
+    } else {
+      // if the current scroll position is less than the previous one, show the header
+      header.style.top = "0";
+    }
+    prevScrollPos = currentScrollPos; // update the previous scroll position
   }
-  </style>
+
+
+  //menu
+  function menuFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
